@@ -1,0 +1,17 @@
+{
+    "name": "copy2other",
+    "version": "1.0.1",
+    "description": "",
+    "author": "Prk",
+    "main": "index.js",
+    "keywords": [],
+    "license": "MIT",
+    "scripts": {
+        "serve": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "express": "^4.21.0",
+        "ws": "^8.18.0"
+    }
+}

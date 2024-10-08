@@ -1,0 +1,122 @@
+/**
+ * 樣式
+ * @author Prk
+ */
+
+/* 清除系統樣式 */
+body,
+ul,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 主體樣式 */
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem 0;
+    height: 100dvh;
+    overflow: hidden;
+    padding-top: .5rem;
+}
+
+/* 按鈕通用樣式 */
+button {
+    font-family: inherit;
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+}
+
+/* 導航樣式 */
+nav {
+    display: flex;
+    gap: 0 1rem;
+}
+
+nav button {
+    flex: 1;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    border-radius: 1rem;
+    aspect-ratio: 16 / 9;
+}
+
+nav button.active {
+    background-color: #000000;
+    color: #FFFFFF;
+    pointer-events: none;
+}
+
+nav button:hover {
+    background-color: #00000010;
+}
+
+nav button:active {
+    background-color: #00000020;
+}
+
+/* 內容區 */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 0 .5rem;
+    background-color: #00000010;
+    padding: 1rem .5rem;
+    border-radius: .5rem;
+    max-height: 500px;
+}
+
+main .list {
+    flex: 1;
+    overflow-y: auto;
+    height: 100%;
+}
+
+main li {
+    list-style: none;
+    word-break: break-all;
+    padding: .2rem .4rem;
+    border-radius: .4rem;
+}
+
+main li:hover {
+    background-color: #00000010;
+    cursor: pointer;
+}
+
+main li:active {
+    background-color: #00000020;
+}
+
+main li+li {
+    margin-top: .2rem;
+}
+
+main .send-form {
+    display: flex;
+    gap: 0 1rem;
+    margin-top: .5rem;
+}
+
+main .send-form input {
+    border: unset;
+    outline: unset;
+    font-family: inherit;
+
+    flex: 1;
+    border-radius: .2rem;
+    padding: .4rem .8rem;
+    font-size: .8rem;
+}
+
+/* 頁腳 */
+footer {
+    padding-bottom: 1rem;
+}
+
+footer p {
+    text-align: center;
+}

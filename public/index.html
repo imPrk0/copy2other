@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>複製到其它設備（小玩具）</title>
+        <link rel="stylesheet" href="/assets/css/style.css" />
+        <script type="text/javascript" src="/assets/js/config.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <nav>
+                <button
+                    v-for="(item, index) in [{
+                        name: '發送端',
+                        active: () => 1 === type,
+                        click: () => type = 1
+                    }, {
+                        name: '接收端',
+                        active: () => 2 === type,
+                        click: () => type = 2
+                    }]"
+                    :key="index"
+                    :class="{ active: item.active() }"
+                    @click="item.click"
+                >
+                    {{ item.name }}
+                </button>
+            </nav>
+            <main>
+                <!-- 發送端 -->
+                <form
+                    class="send-form"
+                    v-if="1 === type"
+                    @submit.prevent="send"
+                >
+                    <input
+                        type="text"
+                        placeholder="請輸入要發送的消息"
+                        v-model="content"
+                    />
+
+                    <button type="submit">
+                        发送
+                    </button>
+                </form>
+
+                <!-- 接收端 -->
+                <ul class="list" v-else-if="2 === type">
+                    <li
+                        v-for="(item, index) in messages"
+                        :key="index"
+                        @click="copy(item);"
+                    >
+                        {{ item }}
+                    </li>
+                </ul>
+
+                <h2 style="text-align: center;" v-else>
+                    請{{ 0 === type ? '' : '正確' }}選擇模式
+                </h2>
+            </main>
+            <footer>
+                <p>
+                    状态：<span class="status">{{ status }}</span>
+                </p>
+            </footer>
+        </div>
+        <script type="text/javascript" src="/assets/js/vue.js"></script>
+        <script type="text/javascript" src="/assets/js/clipboard.js"></script>
+        <script type="text/javascript" src="/assets/js/script.js"></script>
+    </body>
+</html>
